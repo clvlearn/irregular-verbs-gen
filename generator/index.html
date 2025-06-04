@@ -113,7 +113,7 @@
 
   function getFileParam() {
     // Default file is irregular_verbs_h2
-    return getParam("file", "/data/English/Grammar/irregular_verbs_h2").replace(/[^\w\-]/g, "");
+    return getParam("file", "irregular_verbs_h2").replace(/[^\w\-]/g, "");
   }
 
   async function loadCSV() {
@@ -134,7 +134,7 @@
     document.getElementById("date-cell").textContent = date;
     document.getElementById("class-cell").textContent = klas;
 
-    const response = await fetch(`/data/${file}.csv`);
+    const response = await fetch(`/data/English/Grammar/${file}.csv`);
     if (!response.ok) throw new Error("Kon de CSV niet laden");
     const text = await response.text();
     const lines = text.trim().split("\n");
